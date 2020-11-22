@@ -1,0 +1,18 @@
+@media not print and (min-width: 480px) {
+  .imgbox {
+    float: left;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+@media not screen and (min-width: 480px) {
+  body {
+    background-color: rgb(90, 72, 189);
+  }
+}

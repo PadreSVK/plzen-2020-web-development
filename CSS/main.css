@@ -1,0 +1,46 @@
+/*
+document.querySelector("#first")<br>
+document.querySelectorAll("div.secondLayer > ol > li")<br>
+document.querySelectorAll("div.secondLayer > ol > li.item")<br>
+document.querySelectorAll("#second div.secondLayer > ol > li.item")<br>
+*/
+
+/*
+#id => id of element
+.className => class of element
+> child components of element
+[attribute] => attribute
+[attribute=value] => attribute
+
+*/
+
+#first {
+  background-color: aqua;
+}
+
+/* more specific selector */
+
+#second div.secondLayer>ol>li.item {
+  background-color: green;
+}
+
+/* last specification "ovveride" others - this is NOT used */
+
+#second div.secondLayer>ol>li {
+  background-color: blue;
+}
+
+#second div.secondLayer>ol>li {
+  background-color: yellow;
+}
+
+/* pseudo class */
+/* a:hover {
+  color: green;
+  font-weight: bold;
+} */
+
+/* pseudo element */
+/* #first>div>ol>li::before {
+  content: url(smiley.gif);
+} */
