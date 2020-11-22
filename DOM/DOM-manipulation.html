@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style>
+        .otherColor {
+            background-color: rgb(84, 112, 103);
+        }
+        #second div.secondLayer > ol{
+            background-color: rgb(84, 112, 103);
+        }
+    </style>
+    <title>DOM manipulation sample</title>
+    <script type="text/javascript">
+
+        function changeName() {
+            const firstname = document.getElementById('firstNameInput').value;
+            document.getElementById('firstName').innerText = firstname
+        }
+
+        function appendNewPerson() {
+            const personName = document.getElementById('personName').value;
+
+            // Create new li item with text content
+            const entry = document.createElement('li');
+            entry.appendChild(document.createTextNode(personName));
+
+            //entry.style.backgroundColor = "#00FF00";
+            // entry.classList.add("otherColor");
+            // Create new li item with text content
+            const personNlistOfNamesame = document.getElementById('listOfNames');
+            listOfNames.appendChild(entry);
+
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <a href="./index.html">HOME</a>
+    <hr>
+    First name: <input type="text" id="firstNameInput" value="AAAAA"><br>
+    <input type='button' onclick='changeName()' value='Change Name' />
+    <p>Your first name is: <b id='firstName'></b> </p>
+
+    <hr />
+    <p> People's names: </p>
+
+    <ol id="listOfNames">
+        <li>Patrik</li>
+        <li>Fero</li>
+        <li>Kevin</li>
+        <li>Merlin</li>
+    </ol>
+
+    Person name: <input type="text" id="personName" value="Petra"><br>
+    <input type='button' onclick='appendNewPerson()' value='Add new person' />
+
+    <hr />
+    <!-- emmet syntax => div#first>div.secondLayer>ol>li*3.item+li*3.item2 -->
+    <!-- https://code.visualstudio.com/docs/editor/emmet -->
+
+    <!-- 
+    # id
+    . class
+     > selector 
+    -->
+
+    <div id="first">
+        <div class="secondLayer">
+            <ol>
+                <li class="item"></li>
+                <li class="item"></li>
+                <li class="item"></li>
+                <li class="item2"></li>
+                <li class="item2"></li>
+                <li class="item2"></li>
+                <li class="item2"></li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="second">
+        <div class="secondLayer">
+            <ol>
+                <li class="item"></li>
+                <li class="item"></li>
+                <li class="item"></li>
+                <li class="item2"></li>
+                <li class="item2"></li>
+                <li class="item2"></li>
+                <li class="item2"></li>
+            </ol>
+        </div>
+    </div>
+
+    <code>
+        document.querySelector("#first")<br>
+        document.querySelectorAll("div.secondLayer > ol > li")<br>
+        document.querySelectorAll("div.secondLayer > ol > li.item")<br>
+        document.querySelectorAll("#second div.secondLayer > ol > li.item")<br>
+    </code>
+</body>
+
+</html>
