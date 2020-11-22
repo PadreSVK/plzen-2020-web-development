@@ -1,0 +1,38 @@
+/* Variable declarations */
+
+:root {
+    --blue: #1e90ff;
+    --white: #ffffff;
+}
+
+.container {
+    --fontsize: 25px;
+}
+
+/* Styles */
+
+body {
+    background-color: var(--blue);
+}
+
+h2 {
+    border-bottom: 2px solid var(--blue);
+}
+
+.container {
+    color: var(--blue);
+    background-color: var(--white);
+    padding: 15px;
+    font-size: var(--fontsize);
+}
+
+.div {
+     /* fallback value for no existing variable*/
+    font-size: var(--non-existing-variable, "50px");
+}
+
+@media screen and (min-width: 450px) {
+    .container {
+        --fontsize: 50px;
+    }
+}
