@@ -70,3 +70,6 @@ var person1 = {
     lastName: "Doe"
 }
 person.fullName.call(person1, {city:"Oslo", country:"Norway"});
+
+
+
