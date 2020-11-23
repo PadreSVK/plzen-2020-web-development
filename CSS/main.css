@@ -20,6 +20,14 @@ document.querySelectorAll("#second div.secondLayer > ol > li.item")<br>
 
 /* more specific selector */
 
+#second div.secondLayer>ol>li.item[test] {
+  background-color: blue;
+}
+
+#second div.secondLayer>ol>li.item {
+  background-color: red;
+}
+
 #second div.secondLayer>ol>li.item {
   background-color: green;
 }
@@ -35,12 +43,14 @@ document.querySelectorAll("#second div.secondLayer > ol > li.item")<br>
 }
 
 /* pseudo class */
-/* a:hover {
+
+a:hover {
   color: green;
   font-weight: bold;
-} */
+}
 
 /* pseudo element */
-/* #first>div>ol>li::before {
+
+#first>div>ol>li::before {
   content: url(smiley.gif);
-} */
+}
