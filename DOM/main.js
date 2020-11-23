@@ -1,5 +1,8 @@
-function removeButton(){
-    this.event.target.style.display = "none"
+function removeButton() {
+  this.event.target.style.display = "none"
 }
 
-document.getElementById("btn_1").addEventListener("click", e => console.log(e))
+setTimeout(() =>
+  document.getElementById("btn_1").addEventListener("click", function (e) {
+    return console.log(e)
+  }), 1000)
