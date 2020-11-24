@@ -3,6 +3,14 @@ interface User {
   id: number;
 }
 
+let myString: string = "asdasd";
+myString = 55;
+
+if (myString == "") {
+
+}
+
+
 const user = {
   name: "Hayes",
   id: 0,
@@ -16,13 +24,13 @@ const userFromInterface: User = {
 };
 
 
-function test(myArgument : User) : string {
+function test(myArgument: User): string {
   return "Hi from function"
 }
 
 test(user)
 test(userFromInterface)
-test({id: 444, name: "asdas"})
+test({ id: 444, name: "asdas" })
 
 
 class UserAccount {
@@ -46,7 +54,7 @@ type WindowStates = "open" | "closed" | "minimized";
 type LockStates = "locked" | "unlocked";
 type OddNumbersUnderTen = 1 | 3 | 5 | 7 | 9;
 
-function compositionTest(myArgument : WindowStates) {
+function compositionTest(myArgument: WindowStates) {
 
 }
 
@@ -56,3 +64,24 @@ async function loadModule() {
   return await import("./module");
 }
 
+
+
+
+
+function myFunction({ city, country }: { city: string, country: string }) {
+
+}
+
+myFunction({ country: "asdas", city: "asdasd" })
+
+const myObjj = { address: { street: "asdasd" } };
+
+
+type orderModel = typeof myObjj;
+
+function createOrder({ address }: orderModel) {
+  console.log(address.street)
+}
+
+
+createOrder({ address: { street: "asdasd" } })
