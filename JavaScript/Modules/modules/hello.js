@@ -5,13 +5,16 @@ import myModuel from "./myFirstModule.js";
 
 myModuel.myFunctionTest();
 
-export const name = 'hello';
+export const name = {hello: 'hello'};
 
 export function sayHello() {
   console.log("Hello");
 }
 
 let myObject = { newName: name, sayHello };
+
+name["myProp"] = "asdas"
+
 export default myObject
 
 //js anonymous object

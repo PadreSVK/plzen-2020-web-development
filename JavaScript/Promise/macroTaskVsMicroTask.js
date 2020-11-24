@@ -7,6 +7,7 @@ setTimeout(function () {
 Promise.resolve()
   .then(function () {
     console.log('promise 1');
+    return Promise.resolve()
   })
   .then(function () {
     console.log('promise 2');
@@ -19,3 +20,9 @@ console.log('end');
 // promise 1
 // promise 2
 // timeout finished
+
+
+async function test(){
+  await Promise.resolve();
+  console.log('promise 1');
+}

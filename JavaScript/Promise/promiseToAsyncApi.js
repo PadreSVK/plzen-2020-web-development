@@ -6,7 +6,6 @@ let friendsOfUser;
 
 function getUser(userId, callback) {
 
-  const promise = new Promise()
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -22,6 +21,9 @@ function getFriendsOfUser(friednIds, callback) {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       callback(xhttp.responseText)
+    }
+    else {
+      console.error(this.status)
     }
   };
   xhttp.open("GET", `user/?users=${friednIds}`, true);
@@ -44,31 +46,39 @@ getUser(userId, function (data) {
 });
 
 
+
+getFriendsOfUser(friednIds){
+  return
+}
+
 // A solution with promises
 let user;
 let friendsOfUser;
 
-getUser(userId)
-.then(data => {
-  user = data;
-  return getFriendsOfUser(userId);
-})
-.then(friends => {
-  friendsOfUser = friends;
-  return getUsersPosts(userId);
-}).then(posts => {
-  showUserProfilePage(user, friendsOfUser, posts);
-})
-.catch(e => console.error(e));
+const userId = 44
+
+fetch(`user/${userId}`, { method: "GET" })
+  .then(data => {
+    user = data;
+    return fetch(`user/?users=${user.friends.map(i => i.id)}}`, { method: "GET" });
+  })
+  .then(friends => {
+    friendsOfUser = friends;
+    return getUsersPosts(userId);
+  }).then(posts => {
+    showUserProfilePage(user, friendsOfUser, posts);
+  })
+  .catch(e => console.error(e));
+
 
 
 //Async solution
 
 async function userProfile() {
   try {
-    let user = await getUser();
-    let friendsOfUser = await getFriendsOfUser(userId);
-    let posts = await getUsersPosts(userId);
+    let user = await fetch(`user/${userId}`, { method: "GET" });
+    let friendsOfUser = await fetch(`user/?users=${user.friends.map(i => i.id)}}`);
+    let posts = await fetch(`user/${userId}/posts`, { method: "GET" });
 
     showUserProfilePage(user, friendsOfUser, posts);
   } catch (error) {

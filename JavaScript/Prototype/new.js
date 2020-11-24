@@ -47,3 +47,6 @@ child.childMethod()
 
 child.parentFunction(10, 5)
 // Hello aaa + 10 5 from parent
+
+
+const myVar = { name: "Fero", age: 15, address: { street: "Hybesova" } }
