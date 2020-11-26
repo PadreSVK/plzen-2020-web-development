@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using Bogus;
+﻿using Bogus;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 
 public class User
